@@ -19,7 +19,11 @@
 
     <label>Task
 
-        <input name="newTask" bind:value={newTask} />
+        <input name="newTask"
+               bind:value={newTask}
+               minlength="3"
+               required
+        />
 
     </label>
 
