@@ -1,20 +1,21 @@
 <script lang="ts">
 
+    import {fade} from "svelte/transition"
     import type { Task } from "./Export/types.ts"
 
     let { tasks, toggleDone, removeTask }: {
         tasks: Task[]
         toggleDone: (task: Task) => void
-        removeTask: (index: number) => void
+        removeTask: (id: string) => void
     } = $props()
 
 </script>
 
 <section>
 
-    {#each tasks as task, index (task)}
+    {#each tasks as task (task)}
 
-        <article class="task">
+        <article class="task" transition:fade>
 
             <label>
                 <input
@@ -25,7 +26,7 @@
                 <span class:done={task.done}>{task.title}</span>
             </label>
 
-            <button class="outline" onclick={() => removeTask(index)}>Remove</button>
+            <button class="outline" onclick={() => removeTask(task.id)}>Remove</button>
 
         </article>
 

@@ -5,7 +5,7 @@
         addTask: (newTask: string) => void;
     } = $props()
 
-    function formSubmitted( e: SubmitEvent) {
+    function formSubmitted( e: SubmitEvent ) {
 
         e.preventDefault()
         addTask(newTask)
